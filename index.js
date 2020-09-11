@@ -211,13 +211,18 @@ const artists = [
 console.log(artists[0].name);
 console.log(artists[2].bio);
 
+console.log("--------------------------- Task 1 Above ------------------------")
+
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. **** done *****
 Use an array method to fix this issue and console.log() to check your work. */
 
-artists[8].name = "Vincent Van Gogh"; //I'm pretty sure this is not the solution asked for
-console.log(artists[8].name);
 
+function edit(array, index, correction) {
+  array[index].name = correction; //I'm pretty sure this is not the solution asked for
+}
+console.log(edit(artists, 8, "Vincent Van Gogh"));
 
+console.log("-------------------------Task 2 Above -------------------------")
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments: *****Done*****
  *     (1) artists array
@@ -234,6 +239,8 @@ function getArtistByIndex(array, index) {
   
 console.log(getArtistByIndex(artists, 0));
 
+console.log("------------------- Task 3 Above -----------------------------")
+
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an ***** not done *****
 array with names of artists who were born in and died in 20th century (1900-2000) 
 example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
@@ -247,12 +254,35 @@ example born in 1901 and died in 1959 - included / born in 1889 and died in 1925
 
 
 function get20s(array){
+  let newArray = [];
+  
+  for(let i = 0; i<array.length; i++) {
+   
+    let splits = array[i].years;
+    // console.log(splits); // "1901-1986" date range string
+    
+    let birthYearString = splits.split('-')[0];
+    // console.log(birthYearString); // "1901"
+    
+    let deathYearString = splits.split('-')[1]; 
+    // console.log(deathYearString); "1986"
+    
+    let birthYearNumber = parseInt(birthYearString);
+    // console.log(birthYearNumber); 1901
+    
+    let deathYearNumber = parseInt(deathYearString);
+    // console.log(deathYearNumber); 1986
+  
+  
+    if(birthYearNumber >= 1900 && deathYearNumber <= 2000){
+      newArray.push(array[i])
+    }
+  }  
+  return newArray;
 
-  
-  
 }
-
-get20s(artists)
+console.log(get20s(artists));
+console.log("-------------------Task 4 Above ---------------------------")
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments: *****Done****
  *     (1) artists array
@@ -271,6 +301,7 @@ function removeArtist(array, index) {
   
  removeArtist(artists, 0)
 
+ console.log("-------------------------- Task 5 Above --------------------------")
 /**
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
 
@@ -298,7 +329,7 @@ function addArtist(array, newArtistInfo){
                       bio: "I love to eat chicken and rice. I love to swim in a pool"}))
 
 
-
+console.log("------------------------ Task 6 Above -----------------------")
 /* Task 7: Create a function called lotsOfArt() that takes one argument:  *******Done******
 
     (1) artists array 
@@ -317,9 +348,10 @@ function lotsOfArt(array){
   }
   return newArray;
 }
-console.log("_________________________________________") // so you can find where this solution output in the console
+
 console.log(lotsOfArt(artists));                // also you need to comment out the above functions or you will not see "Amedeo Modigliani" in the output
 
+console.log("------------------ Task 7 Above ---------------------------------------")
 // 🎨🎨 STRETCH 🎨🎨//
 
 
