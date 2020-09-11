@@ -211,10 +211,11 @@ const artists = [
 console.log(artists[0].name);
 console.log(artists[2].bio);
 
-/* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. 
+/* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. **** done *****
 Use an array method to fix this issue and console.log() to check your work. */
 
-
+artists[8].name = "Vincent Van Gogh"; //I'm pretty sure this is not the solution asked for
+console.log(artists[8].name);
 
 
 
@@ -229,29 +230,26 @@ Use an array method to fix this issue and console.log() to check your work. */
 function getArtistByIndex(array, index) {
   
   return `The artist at index ${array[index].id} is ${array[index].name}.`
-  
 }
   
 console.log(getArtistByIndex(artists, 0));
 
-/* Task 4: Create a function called get20s() that takes data as an argument and returns an 
+/* Task 4: Create a function called get20s() that takes data as an argument and returns an ***** not done *****
 array with names of artists who were born in and died in 20th century (1900-2000) 
 example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
+//notes to self: 
+// 1) I think what I need to do is access the years key within the objects
+// 2) transform the string i.e 'year - year' into two numeric values i.e birthYear and deathYear possibly contained within another array
+// 3) compare birth year to 1900 and death year to 2000 i'd use a conditonal statement here
+// if(birthyear >= 1900 && deathYear <= 2000){
+// 4) add the values that meet the conditional into a new array ------ newArray.push(array[i])
+
+
 function get20s(array){
 
-  for (let i = 0; i < array.length; i++) {
-    
-    let newString = array[i].years;
-    let newString2 = newString.replace(/-/g,"");
-    console.log(newString2)
-
-    let numbers = parseInt(newString2);
-    console.log(numbers);
-
-    
-    
-  }
+  
+  
 }
 
 get20s(artists)
